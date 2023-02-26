@@ -2,8 +2,45 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+  static void Main(string[] args)
+  {
+
+    List<int> numbers = new List<int>();
+
+    int number = -1;
+
+
+    while (number != 0)
     {
-        Console.WriteLine("Hello Prep4 World!");
+
+      Console.WriteLine("Enter Number: ");
+      string userNumber = Console.ReadLine();
+      number = int.Parse(userNumber);
+      numbers.Add(number);
     }
+    if (number == 0)
+    {
+      int sum = numbers.Sum();
+      Console.WriteLine($"The sum is: {sum}");
+
+      int stageCount = numbers.Count;
+      int count = stageCount - 1;
+      int average = sum / count;
+      Console.WriteLine($"The average is: {average}");
+
+      Console.WriteLine($"The Largest number is: {numbers.Max()}");
+
+      Console.WriteLine($"The smallest positive number is: {numbers.Where(i => i > 0).Min()}");
+
+      foreach (int i in numbers)
+      {
+        if (i != 0)
+        {
+          Console.WriteLine(i);
+        }
+      }
+
+    }
+
+  }
 }
